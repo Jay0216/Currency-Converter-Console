@@ -6,4 +6,18 @@ fun main() {
     println("---------  Currency Converter App --------------")
 
 
+    print("Enter Currency Type You Want : ")
+    val curreny_type = readln()
+
+    val currency = Currency()
+
+    currency.c_type = curreny_type.trim()
+
+    currency.convertCurrency()
+
+
+
+
+
+
 }
