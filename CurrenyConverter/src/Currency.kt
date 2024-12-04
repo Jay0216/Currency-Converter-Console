@@ -1,11 +1,14 @@
-class Currency{
+class Currency : Operations() {
 
 
     var c_type: String = ""
 
+    var convert_type: String = ""
 
-    //need a map datastructure for store key and value pair
-    private val _currency_list: ArrayList<Any> = arrayListOf("usd", "lkr", "eur")
+    var value: Int = 0
+
+    //need a map datastructure for store key and value pair (sri lankan rates)
+    private val _currency_list: Map<String, Int> = mapOf("usd" to 330, "eur" to 400, "gbp" to 420)
 
 
 
@@ -14,26 +17,33 @@ class Currency{
 
     fun convertCurrency(){
 
-
         checkingInputs()
     }
 
     fun checkingInputs(){
-        print("checking input currency")
+        println("checking input currency")
 
-        if(_currency_list.contains(c_type)) {
-            print("the entered currency founded")
+        if(_currency_list.containsKey("usd")) {
+            println("the entered currency founded")
 
-            fetchingRates()
+            fetchingCalculation()
         }else{
-            print("the entered currency not founded")
+            println("the entered currency not founded")
 
         }
     }
 
 
-    fun fetchingRates(){
-        print("fetching rates")
+    override fun fetchingCalculation(){
+        println("fetching rates")
+
+        // sample convert logic
+
+        val Totalrate: Int? = _currency_list.get("usd")
+
+        if (Totalrate != null) {
+            println("${convert_type} : ${Totalrate * value}")
+        }
 
 
     }
