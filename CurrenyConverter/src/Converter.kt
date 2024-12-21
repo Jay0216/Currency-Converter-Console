@@ -2,7 +2,7 @@ class Converter () : AbstractConvertOperations()  {
 
     val currency = Currency()
 
-    val converter: String = ""
+
 
     var c_type: String = ""
 
@@ -48,31 +48,40 @@ class Converter () : AbstractConvertOperations()  {
 
     // adjust these fetching calculation according to the entered currency (primary currency)
 
+
+    // check if entered Primary currency type is in the list
+    // if entered lkr currency as primary currency it is needed to be divided with secondary currency
     override fun fetchingCalculation(){
         println("fetching rates")
 
-        val currency_list: Map<String, Int> = currency.getCurrencyList()
+        val primary_currency_list: Map<String, Int> = currency.getPrimaryCurrencyList()
 
-        if(currency_list.containsKey("usd")) {
+        val secondary_currency_list: Map<String, Double> = currency.getSecondaryCurrencyList()
+
+        if(primary_currency_list.containsKey(c_type)) {
             println("the entered currency founded")
 
-            val Totalrate: Int? = currency_list.get("usd")
+            val Totalrate: Int? = primary_currency_list.get(c_type)
 
 
             if (Totalrate != null) {
                 println("${convert_type} : ${Totalrate * value}")
             }
 
-        }else{
+        }else if(c_type == "lkr"){
+            val Totalrate: Double? = secondary_currency_list.get(convert_type)
+
+            if (Totalrate != null) {
+                println("${convert_type} : ${value * Totalrate}")
+            }
+        }
+        else{
+
             println("the entered currency not founded")
 
         }
 
         // sample convert logic
-
-
-
-
 
     }
 

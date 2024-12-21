@@ -3,7 +3,7 @@
 fun main() {
 
 
-    println("---------  Currency Converter App --------------")
+    println("---------  Currency Converter App (LKR) --------------")
 
 
     print("Enter Primary Currency Type : ")
