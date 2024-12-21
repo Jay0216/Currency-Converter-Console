@@ -2,6 +2,6 @@ class History {
 
     fun saveHistory() {
 
-        println("Saving History..")
+        println("Saving History to File..")
     }
 }
