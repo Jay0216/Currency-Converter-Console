@@ -19,7 +19,9 @@ class Converter {
 
 
 
-            currency.fetchingCalculation(c_type, convert_type, value)
+        currency.fetchingCalculation(c_type, convert_type, value)
+
+        history.saveHistory()
 
         //currency.getCurrencyList()
 
