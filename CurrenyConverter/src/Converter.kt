@@ -54,14 +54,6 @@ class Converter {
     // if entered lkr currency as primary currency it is needed to be divided with secondary currency
 
 
-    fun saveHistory(){
-        print("saving history")
 
-        history.saveHistory()
-    }
-
-    fun convertionHistory(){
-        print("fetching history")
-    }
 
 }
