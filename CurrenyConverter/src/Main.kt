@@ -17,13 +17,18 @@ fun main() {
 
     println("${curreny_type} => ${convert_type}")
 
-    val currency = Currency()
+    val converter = Converter()
 
-    currency.c_type = curreny_type.trim()
-    currency.convert_type = convert_type.trim()
-    currency.value = value
+    converter.c_type = curreny_type.trim()
+    converter.convert_type = convert_type.trim()
+    converter.value = value
 
-    currency.convertCurrency()
+    // convert operation (facade pattern to simplify client process)
+    converter.convert()
+
+
+
+    //currency.convertCurrency()
 
 
 
